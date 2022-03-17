@@ -11,7 +11,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{headerShown: false}}
-        tabBarOptions={{showLabel: false, style: {backgroundColor: '#FFE0D6'}}}>
+        tabBarOptions={{showLabel: false, style: {backgroundColor: '#1a237e'}}}>
         <Tab.Screen
           name="Add To Do"
           component={AddToDo}
@@ -23,7 +23,7 @@ const App = () => {
                   style={{
                     width: 35,
                     height: 35,
-                    tintColor: focused ? '#FFBD52' : '#000',
+                    tintColor: focused ? '#dce775' : '#a8b545',
                   }}
                 />
               </View>
@@ -41,7 +41,7 @@ const App = () => {
                   style={{
                     width: 35,
                     height: 35,
-                    tintColor: focused ? '#FFBD52' : '#000',
+                    tintColor: focused ? '#dce775' : '#a8b545',
                   }}
                 />
               </View>
