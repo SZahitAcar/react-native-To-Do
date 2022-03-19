@@ -1,26 +1,27 @@
 import {SafeAreaView, Text, Button, FlatList} from 'react-native';
 import React, {useState} from 'react';
 import TextInputBar from '../../components/TextInputBar/TextInputBar';
+import {useDispatch} from 'react-redux';
 
 const AddToDo = () => {
   const [toDo, setToDo] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  // const [todoList, setTodoList] = useState([]);
 
-  const handleOnChange = text => {
-    setToDo(text);
-  };
-  const handleAddToDo = () => {
-    setTodoList([...todoList, toDo]);
+  const dispatch = useDispatch();
+
+  const handleOnChange = () => {
+    dispatch({type: 'ADD_LIST', payload: {todo: toDo}});
     setToDo(null);
   };
+  // const handleAddToDo = () => {
+  //   setTodoList([...todoList, toDo]);
+  //   setToDo(null);
+  // };
   return (
     <SafeAreaView>
       <Text>AddToDo</Text>
-      <TextInputBar toDo={toDo} onChangeText={handleOnChange} />
-      <Button title="Add" onPress={() => handleAddToDo()} />
-      {todoList.map((item, index) => {
-        return <Text key={index}>{item}</Text>;
-      })}
+      <TextInputBar toDo={toDo} onChangeText={setToDo} />
+      <Button title="Add" onPress={handleOnChange} />
     </SafeAreaView>
   );
 };
